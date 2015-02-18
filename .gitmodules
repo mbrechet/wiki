@@ -1,0 +1,3 @@
+[submodule "server/tiddly"]
+	path = server/tiddly
+	url = https://github.com/mbrechet/TiddlyWiki5.git
