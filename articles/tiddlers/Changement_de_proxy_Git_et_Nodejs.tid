@@ -1,0 +1,47 @@
+created: 20150219074337890
+modified: 20150219080249535
+tags: outils nodejs git proxy
+title: Changement de proxy Git et Nodejs
+type: text/vnd.tiddlywiki
+
+! Changement du proxy NodeJs
+!! Ajout du proxy
+L'ajout se fait via la commande suivante :
+
+```
+npm config set proxy http://proxy.company.com:8080
+npm config set https-proxy http://proxy.company.com:8080
+```
+!! Suppression du proxy
+La suppression se fait via la commande suivante : 
+
+```
+npm config delete http-proxy
+npm config delete https-proxy
+```
+
+! Changement de proxy Git
+!! Ajout du proxy
+L'ajout se fait via la commande suivante :
+
+```
+git config --global http.proxy http://user:pass@proxyhost:proxyport
+```
+
+!! Suppression du proxy
+La suppression se fait via la commande suivante :
+
+```
+git config --global --unset-all http.proxy
+```
+
+!! proxy sur un repo local spécifique
+On peut par exemple vouloir spécifier un porxy uniquement pour un projet, dans ce cas il faut se positionner dans le répertoire du projet et ajouter la commande suivante :
+
+```
+// ajout
+git config http.proxy http://user:pass@proxyhost:proxyport
+
+// suppression
+git config --unset-all http.proxy
+```
