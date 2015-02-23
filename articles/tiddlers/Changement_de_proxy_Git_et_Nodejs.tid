@@ -1,5 +1,5 @@
 created: 20150219074337890
-modified: 20150219080249535
+modified: 20150219130830229
 tags: outils nodejs git proxy
 title: Changement de proxy Git et Nodejs
 type: text/vnd.tiddlywiki
@@ -16,7 +16,7 @@ npm config set https-proxy http://proxy.company.com:8080
 La suppression se fait via la commande suivante : 
 
 ```
-npm config delete http-proxy
+npm config delete proxy
 npm config delete https-proxy
 ```
 
