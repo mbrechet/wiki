@@ -1,0 +1,39 @@
+created: 20150220074621998
+modified: 20150223163655697
+tags: Conception Vidéo Architecture
+title: Architecture Player Vidéo
+type: text/vnd.tiddlywiki
+
+! Introduction
+La construction d'un player vidéo pour le web n'est pas simple. Surtout si l'on veut que se player soit utilisable sur plusieurs environnements avec différentes technologies (Flash, Silverlight, HTML5...). Même si la tentance est de passer à du tout HTML5, il faut quand même supporter certain anciens navigateurs encore utilisés.
+
+! N players javascript
+Le rincipe le plus simple est donc de développer autant "wrapper" (objet Javascript permettant l'intéraction entre la page web et le player vidéo) que l'on a de technologie à utiliser dans notre application. A ce stade, 2 constats apparaissent :
+
+# Le portail web a besoin d'API identiques peut importe la technologie
+# Chaque technologie dispose de ses propres méthodes
+
+Une concepetion rapide de l'architecture donne donc le schéma suivant :
+[img[default_conception_player.jpg]]
+
+
+!! Conclusion
+On voit bien que si l'on se contente de développer autant de "wrapper" que de technologie nécessaire, le code devient de moins en moins maintenable, de plus le portail web doit posséder l'intelligence spécifique de chaque "type" de contenu.
+
+! Utilisation de Pattern de conception
+
+!! Une interface pour centraliser les méthodes
+Même si le language javascript ne se prête pas forcément à l'utilisation d'interfaces, pour la lecture du code il est intéressant de centraliser les signatures des méthodes utilisées dans une interface. Ainsi chaque objet héritera de celle-ci et va redéfinir chacune des méthodes en fonction des technologie utilisée.
+
+ce qui peut se présenter par le schéma suivant :
+
+[img[interfaces_conception_player.jpg]]
+
+De cette façon l'ensemble des actions possible sur un player sont répertoriées dans l'interface
+
+!!! Conclusion
+Ce n'est pas encore suffisant, on voit bien que le portail web est toujours très solicité pour la création des objets de différents types
+
+!! Une façade pour abstraire la complexité vue du portail
+On voit clairement que le portail web n'a pas besoin de connaitre le fonctionnement détaillé du player du moment qu'il peut appeler les fonctions commune de l'interface du player
+
