@@ -1,0 +1,14 @@
+created: 20150220074134105
+modified: 20150220074515224
+tags: commandes Linux
+title: Commandes Linux
+type: text/vnd.tiddlywiki
+
+Petit mémo des commandes utiles sous linux :
+
+!! liens symboliques
+
+```
+ln -s nom_pointé nom_du_symlink
+```
+
