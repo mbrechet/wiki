@@ -1,5 +1,5 @@
 created: 20150220074621998
-modified: 20150224150751163
+modified: 20150305133959960
 tags: Conception Vidéo Architecture
 title: Architecture Player Vidéo
 type: text/vnd.tiddlywiki
@@ -35,5 +35,22 @@ De cette façon l'ensemble des actions possible sur un player sont répertoriée
 Ce n'est pas encore suffisant, on voit bien que le portail web est toujours très solicité pour la création des objets de différents types
 
 !! Une façade pour abstraire la complexité vue du portail
-On voit clairement que le portail web n'a pas besoin de connaitre le fonctionnement détaillé du player du moment qu'il peut appeler les fonctions commune de l'interface du player
+On voit clairement que le portail web n'a pas besoin de connaitre le fonctionnement détaillé du player du moment qu'il peut appeler les fonctions communes de l'interface du player.
+
+Pour cela on va créer un objet intermédiaire servant de "façade" au portail web et qui héritera lui aussi de l'interface PlayerInterface.
+
+C'est cet objet que le portail web utilisera pour manipuler des vidéos. ce qui donne le schéma suivant : 
+[img[facade_conception_player.jpg]]
+
+!! Une "factory" pour gérer la creation
+A ce stade on s'aperçoit que le choix du player utilisé est effectué dans l'objet "façade", celui-ci n'ayant pas forcément la connaissance de la tecnologie à utiliser, il doit s'attendre à recevoir l'information de la part d'un composant externe. Pour facilité la création du "bon" player", nous allons déléguer la création de ce player à une ''factory'' qui se chargera d'instancier la technologie à mettre en place.
+
+[img[factory_conception_player.jpg]]
+
+!! Un manager de technologie
+Si l'on veut pouvoir aller plus loin, l'idéal est de pouvoir switcher de technologie du playuer à la volée, pour par exemple  passé d'un player HTML5 à un player Silverlight lorsque certains flux ne sont pas lisibles en HTML5
+
+Il suffit pour cela d'ajouter un Manager de création de notre factory ce qui donne le schéma final suivant :
+
+[img[factory_manager_conception_player.jpg]]
 
