@@ -1,0 +1,81 @@
+created: 20150325082305982
+modified: 20150403084923471
+tags: nodejs Linux
+title: Node.js avec nvm
+type: text/vnd.tiddlywiki
+
+[img[nvm.png]]
+
+! ou comment gérer facilement le changement de versions de node.js et même de io.js
+
+Si vous avez l'habitude de développez des projet faisant appel au server node.js, il est fort probable que vous vous soyez un jour confronté au problème de montée de version. Les mises à jour étant fréquente, il est plus confortable de travailler avec la dernière version de node.js pour bénéficier des dernières évolutions. D'un autre côté bien souvent le server en production n'a pas forcément la même version, il est donc intéressant de vérifier rapidement si notre livrable est fonctionnel.
+
+''Node Version Manager'' est un utilitaire de gestion de version pour node, il permet de gérer facilement les mises à jour / changement de version de //node.js//, de //npm// et même de //io.js//
+
+! Installation de nvm
+
+Sous linux on peut utiliser ''curl'' pour récupérer ''nvm''
+
+```
+curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash
+```
+Normalement, ce script clone le repository //nvm// dans le chemin //~/.nvm// et ajoute la commande au profile
+
+pour vérifier ouvrir un shell et taper la commande suivante
+
+```
+nvm --version
+```
+
+La version devrait apparaitre :
+
+```
+O.24.0
+```
+
+Sinon il faut ajouter à la main la ligne suivante dans le fichier //~/.profile// et dansle fichier //~/.bashrc//
+
+```
+nano .bashrc
+```
+Ajouter en fin de fichier la ligne suivante :
+
+```
+source ~/.nvm/nvm.sh
+```
+
+! Installation de node.js
+
+!! Lister les versions disponibles
+Il est possible de lister les versions de //node.js// et de //io.js// disponible
+
+```
+nvm ls-remote
+```
+Il suffit ensuite de choisir la version souhaitée
+
+Si l'on veut connaître la liste des version installées sur notre machine il suffit de taper la commande suivante : 
+
+```
+nvm ls
+```
+
+!! Installation 
+Une fois cette première étape réalisée, l'installation est simple, il suffit de lancer la commande suivante, en choisisant entre le numéro de //version//, ou les mots clés //stable//, //unstable//
+
+```
+nvm install <version|stable|unstable>
+```
+Note : pour le raspberry pi il peut être nécessaire au préalable de créer un répertoire version dans le répertoire //~/.nvm/ //
+
+!! Utilisation
+
+Pour choisir la version de node.js à utiliser, il suffit de tapper la commande suivante:
+
+```
+nvm use <version>
+```
+
+Pour être certain de ne pas retapper à chaque redémarrage cette commande, il faut l'ajouter dans le fichier //.bashrc//
+
+L'utilisation de //nodejs// et de //npm// se fait de la même manière qu'avec uneutilisation classique
