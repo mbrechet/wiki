@@ -1,8 +1,20 @@
 created: 20150226131133552
-modified: 20150226131225116
+modified: 20150330145506075
 tags: liens outils
 title: Liens Utiles
 type: text/vnd.tiddlywiki
 
 !! Un généateur de bookmarklet
 http://ted.mielczarek.org/code/mozilla/bookmarklet.html
+
+!! Mise en forme du code en HTML
+http://markup.su/highlighter/
+
+!! traduction
+word reference
+
+!! Téléchargement de vidéo Youtube
+choisir une url de vidéo
+et remplacer l'url par ''ss'' pour faire le site http://www.ssyoutube.com/..?..
+
+ou via le site : http://fr.savefrom.net/

@@ -1,14 +1,24 @@
 created: 20150220074134105
-modified: 20150220074515224
+modified: 20150326170419532
 tags: commandes Linux
 title: Commandes Linux
 type: text/vnd.tiddlywiki
 
 Petit mémo des commandes utiles sous linux :
 
-!! liens symboliques
+!! Liens symboliques
 
 ```
 ln -s nom_pointé nom_du_symlink
 ```
 
+!! Espace Disque disponible
+!!! global
+```
+df -h
+```
+!!! d'un dossier
+
+```
+du -ach .
+```
