@@ -18,3 +18,8 @@ choisir une url de vidéo
 et remplacer l'url par ''ss'' pour faire le site http://www.ssyoutube.com/..?..
 
 ou via le site : http://fr.savefrom.net/
+
+
+!! Accès root goflex`
+
+``ssh USERNAME_hipserv2_seagateplug_XXXX-XXXX-XXXX-XXXX@YOUR_IP_ADDRESS``
